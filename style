@@ -1,0 +1,81 @@
+/* 全体のスタイル */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f4f4f9;
+    overflow-y: scroll;
+  }
+  
+  /* 桜の花びらを降らせるためのスタイル */
+  .sakura-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* 花びらがクリックやホバーを邪魔しないように */
+    z-index: 1;
+  }
+  
+  /* 花びらのスタイル */
+  .sakura {
+    position: absolute;
+    background: url('../img/sakura.png') no-repeat center center;
+    background-size: contain;
+    width: 20px; /* 花びらのサイズ */
+    height: 20px;
+    opacity: 0.8;
+    animation: fall 10s linear infinite, spin 10s linear infinite;
+  }
+  
+  /* 花びらが降るアニメーション */
+  @keyframes fall {
+    0% {
+      top: -30px;
+      transform: translateX(0);
+      opacity: 0.8;
+    }
+    100% {
+      top: 100%;
+      transform: translateX(50px); /* ランダムな左右の動き */
+      opacity: 0.2;
+    }
+  }
+  
+  /* 花びらが回転するアニメーション */
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* 各花びらにランダムな遅延と位置 */
+  .sakura:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+  }
+  
+  .sakura:nth-child(2) {
+    left: 30%;
+    animation-delay: 1s;
+  }
+  
+  .sakura:nth-child(3) {
+    left: 50%;
+    animation-delay: 2s;
+  }
+  
+  .sakura:nth-child(4) {
+    left: 70%;
+    animation-delay: 3s;
+  }
+  
+  .sakura:nth-child(5) {
+    left: 90%;
+    animation-delay: 4s;
+  }
+  
